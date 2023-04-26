@@ -1,0 +1,10 @@
+summary: Create Cart
+tasks:
+  - id: postgres_cart_create
+    fn: com.gs.datastore
+    args:
+      datasource: postgres
+      data:
+        data: <% inputs.body %>
+      config:
+        method: Cart.create

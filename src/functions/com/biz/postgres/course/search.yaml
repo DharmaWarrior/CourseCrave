@@ -1,0 +1,9 @@
+summary: Fetch many Course
+tasks:
+  - id: postgres_course_search
+    fn: com.gs.datastore
+    args:
+      datasource: postgres
+      data: <% inputs.body %>
+      config:
+        method: Course.findMany

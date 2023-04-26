@@ -1,0 +1,88 @@
+# ONE
+/postgres/course/:id.http.get:
+  summary: Fetch Course
+  description: Fetch Course from database
+  fn: com.biz.postgres.course.one
+  params:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    content:
+      application/json:
+        schema:
+          type: object
+
+# CREATE
+/postgres/course.http.post:
+  summary: Create a new Course
+  description: Create Course from database
+  fn: com.biz.postgres.course.create
+  body:
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/postgres/Course'
+  responses:
+    content:
+      application/json:
+        schema:
+          type: object
+
+# UPDATE
+/postgres/course/:id.http.put:
+  summary: Update a Course
+  description: Update Course from database
+  fn: com.biz.postgres.course.update
+  body:
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/postgres/Course'
+  params:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    content:
+      application/json:
+        schema:
+          type: object
+
+# DELETE
+/postgres/course/:id.http.delete:
+  summary: Delete a Course
+  description: Delete Course from database
+  fn: com.biz.postgres.course.delete
+  params:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    content:
+      application/json:
+        schema:
+          type: object
+
+# SEARCH
+/postgres/course/search.http.post:
+  summary: Fetch multiple Course
+  description: Fetch multiple Course from database
+  fn: com.biz.postgres.course.search
+  body:
+    content:
+      application/json:
+        schema:
+          type: object
+  responses:
+    content:
+      application/json:
+        schema:
+          type: array
+

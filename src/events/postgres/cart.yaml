@@ -1,0 +1,88 @@
+# ONE
+/postgres/cart/:id.http.get:
+  summary: Fetch Cart
+  description: Fetch Cart from database
+  fn: com.biz.postgres.cart.one
+  params:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    content:
+      application/json:
+        schema:
+          type: object
+
+# CREATE
+/postgres/cart.http.post:
+  summary: Create a new Cart
+  description: Create Cart from database
+  fn: com.biz.postgres.cart.create
+  body:
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/postgres/Cart'
+  responses:
+    content:
+      application/json:
+        schema:
+          type: object
+
+# UPDATE
+/postgres/cart/:id.http.put:
+  summary: Update a Cart
+  description: Update Cart from database
+  fn: com.biz.postgres.cart.update
+  body:
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/postgres/Cart'
+  params:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    content:
+      application/json:
+        schema:
+          type: object
+
+# DELETE
+/postgres/cart/:id.http.delete:
+  summary: Delete a Cart
+  description: Delete Cart from database
+  fn: com.biz.postgres.cart.delete
+  params:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    content:
+      application/json:
+        schema:
+          type: object
+
+# SEARCH
+/postgres/cart/search.http.post:
+  summary: Fetch multiple Cart
+  description: Fetch multiple Cart from database
+  fn: com.biz.postgres.cart.search
+  body:
+    content:
+      application/json:
+        schema:
+          type: object
+  responses:
+    content:
+      application/json:
+        schema:
+          type: array
+
